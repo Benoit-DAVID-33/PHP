@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <?php require_once "includes/partials/navbar.phtml"; ?>
+        </nav>
+        <header>
+            <h1>Je suis dans la liste des contacts</h1>
+        </header>
+        <table>
+				<thead>
+				<tr>
+					<th>Civilité</th>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Date de naissance</th>
+					<th>code postal - ville</th>
+					<th colspan="2">Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php
+					$script = '';
+					foreach ($lesContacts as $unContact){
+						$script .= '<tr>';
+						$script .= '<td>'.$unContact['libelle_court'].'</td>';
+						$script .= '<td><a href="index.php?page=contact&action=view&id='.$unContact['id'].'">'.$unContact['nom'].'</a></td>';
+						$script .= '<td>'.$unContact['prenom'].'</td>';
+						$script .= '<td>'.$unContact['date_naissance'].'</td>';
+						$script .= '<td>'.$unContact['ville'].'</td>';
+						$script .= '<td><a href="frm_contact.php?action=edit&id='.$unContact['id'].'"><img src="public/images/edit_blue.png"></a></td>';
+						$script .= '<td><a data-name="lien" href="lst_contacts.php?action=delete&id='.$unContact['id'].'"><img src="public/images/delete_blue.png"></a></td>';
+						$script .= '</tr>';
+					}
+					print($script);
+				?>
+				</tbody>
+			</table>
+    </main>
+</body>
+</html>

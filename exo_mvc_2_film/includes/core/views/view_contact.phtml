@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <?php require_once "includes/partials/navbar.phtml"; ?>
+        </nav>
+        <header>
+            <h1>Titre de ma page d'accueil</h1>
+        </header>
+        <section>
+                <div>
+		    	<label for="">Civilité :</label>
+		    	<?= $unContact['libelle_court'] ?>
+		    </div>
+		    <div>
+		    	<label for="">Nom : </label>
+		    	<?= $unContact['nom'] ?>
+		    </div>
+		    <div>
+		    	<label for="">Prénom : </label>
+		    	<?= $unContact['prenom'] ?>
+		    </div>
+		    <div>
+		    	<label for="">Age : </label>
+		    	<?= $unContact['age'] ?>
+		    </div>
+		    <div>
+		    	<label for="">Adresse : </label>
+		    	<?= $unContact['adresse'] ?><br>
+		    	<?= $unContact['ville'] ?>
+		    </div>
+        </section>
+    </main>
+    
+</body>
+</html>
